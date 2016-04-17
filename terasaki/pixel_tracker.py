@@ -10,11 +10,11 @@ def generate_square_on_domain(domain_sizes=25):
     upper_left_y=3
     #make square
     for i in range(row_size):
-        domain[upper_left_x+i][upper_left_y]=1
-        domain[upper_left_x+i][upper_left_y+(col_size-1)]=1
+        domain[upper_left_y+i][upper_left_x]=1
+        domain[upper_left_y+i][upper_left_x+(col_size-1)]=1
     for j in range(col_size):
-        domain[upper_left_x,upper_left_y+j]=1
-        domain[upper_left_x+(row_size-1),upper_left_y+j]=1
+        domain[upper_left_y,upper_left_x+j]=1
+        domain[upper_left_y+(row_size-1),upper_left_x+j]=1
     return domain
 
 def generate_Sigma_curve_on_domain(domain_sizes=25):
@@ -27,11 +27,13 @@ def generate_Sigma_curve_on_domain(domain_sizes=25):
 
     #make horizontal
     for j in range(row_length):
-        domain[upper_left_x,upper_left_y+j]=1
-        domain[upper_left_x+row_length,upper_left_y+j]=1
+        domain[upper_left_y,upper_left_x+j]=1
+        domain[upper_left_y+row_length,upper_left_x+j]=1
     for k in range(8):
-        domain[upper_left_x+k][upper_left_y+k]=1
-        domain[upper_left_x+vertical_length-1-k][upper_left_y+k]=1
+        domain[upper_left_y+k][upper_left_x+k]=1
+        domain[upper_left_y+vertical_length-1-k][upper_left_x+k]=1
+    #add accent
+    domain[upper_left_y+1][upper_left_x+row_length-1]=1
     return domain
     
 
