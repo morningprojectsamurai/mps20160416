@@ -63,12 +63,6 @@ def exist_start(domain,coords):
                 print(candidates)
                 if all([domain[tuple(c+2*candi)]==0 for candi in candidates])==True:
                     return True,c
-                else :
-                    continue
-            else :
-                continue
-        else:
-            continue
     return False,None
 
 def condi(domain,traced,c,direc):
