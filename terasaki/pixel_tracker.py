@@ -60,7 +60,6 @@ def exist_start(domain,coords):
             ext_sub_dom=[domain[tuple(c+np.array([i,j]))] for i in [-2,-1,0,1,2] for j in [-2,-1,0,1,2]]
             if np.count_nonzero(ext_sub_dom)==4:
                 candidates=[np.array([i,j]) for i in [-1,0,1] for j in [-1,0,1] if surro(domain,c,np.array([i,j]))]
-                print(candidates)
                 if all([domain[tuple(c+2*candi)]==0 for candi in candidates])==True:
                     return True,c
     return False,None
