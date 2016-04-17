@@ -52,10 +52,7 @@ def exist_start(domain,coords):
     return False,None
 
 def condi(domain,traced,c,direc):
-    if not np.all(direc==0) and domain[tuple(c+direc)]==1 and traced[tuple(c+direc)]==0:
-        return True
-    else:
-        return False
+    return not np.all(direc==0) and domain[tuple(c+direc)]==1 and traced[tuple(c+direc)]==0
 
 def find_next_coord(dom,tr,c,direc):
     if dom[tuple(direc+c)]==1:
