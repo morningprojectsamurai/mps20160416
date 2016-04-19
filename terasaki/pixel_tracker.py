@@ -68,8 +68,8 @@ def find_next_coord(dom,tr,c,direc):
         return np.array(c+direc),direc
     else:
         candidates=[np.array([i,j]) for i in [-1,0,1] for j in [-1,0,1] if condi(dom,tr,c,np.array([i,j]))]
-        dists=[abs(cand).sum() for cand in candidates]
-        return np.array(candidates[np.argmin(dists)]+c),candidates[np.argmin(dists)]
+        manhattan_dists=[abs(cand).sum() for cand in candidates]
+        return np.array(candidates[np.argmin(manhattan_dists)]+c),candidates[np.argmin(manhattan_dists)]
 
 if __name__ == '__main__':
     #domain=generate_square_on_domain()
