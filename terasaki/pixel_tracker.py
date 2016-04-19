@@ -38,11 +38,7 @@ def generate_Sigma_curve_on_domain(domain_sizes=25):
     
 
 def collect_curve_coordinates(domain):
-    coords=[]
-    for ind,val in np.ndenumerate(domain):
-        if val==1:
-            coords.append(ind)
-    return coords
+    return [ind for ind,val in np.ndenumerate(domain) if val==1]
 
 def surro(dom,c,direc):
     return not np.all(direc==0) and domain[tuple(c+direc)]==1
