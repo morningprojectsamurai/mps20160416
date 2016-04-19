@@ -88,7 +88,7 @@ if __name__ == '__main__':
         start_coord=coords[0]
 
     traced_table=np.zeros(domain.shape,dtype=int)
-    traced_table[start_coord[0]][start_coord[1]]=1
+    traced_table[start_coord]=1
     #set initial value
     #note that direc stands for direction
     coord=np.array(start_coord)
@@ -103,7 +103,7 @@ if __name__ == '__main__':
         #update for next step
         coord=next_coord
         direc=next_direc
-        traced_table[next_coord[0]][next_coord[1]]=1
+        traced_table[tuple(next_coord)]=1
         
         #for debug
         print(traced_table)
