@@ -45,7 +45,8 @@ def surro(dom,c,direc):
 
 def exist_start(domain,coords):
     for c in coords:
-        sub_dom=np.array([domain[tuple(c+np.array([i,j]))] for i in [-1,0,1] for j in [-1,0,1]]).reshape(3,3)
+        sub_dom=np.array([domain[tuple(c+np.array([i,j]))] 
+                            for i in [-1,0,1] for j in [-1,0,1]]).reshape(3,3)
         if np.count_nonzero(sub_dom)==2:
             return True,c
         elif np.count_nonzero(sub_dom)==3:
@@ -53,7 +54,8 @@ def exist_start(domain,coords):
             x_num=[j for j in range(sub_dom.shape[1]) if np.any(sub_dom[:,j])==1]
             if len(x_num)==3 or len(y_num)==3:
                 continue
-            ext_sub_dom=[domain[tuple(c+np.array([i,j]))] for i in [-2,-1,0,1,2] for j in [-2,-1,0,1,2]]
+            ext_sub_dom=[domain[tuple(c+np.array([i,j]))] 
+                            for i in [-2,-1,0,1,2] for j in [-2,-1,0,1,2]]
             if np.count_nonzero(ext_sub_dom)==4:
                 candidates=[np.array([i,j]) for i in [-1,0,1] for j in [-1,0,1] if surro(domain,c,np.array([i,j]))]
                 if all([domain[tuple(c+2*candi)]==0 for candi in candidates])==True:
